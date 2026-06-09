@@ -832,7 +832,7 @@ filter:drop-shadow(0 0 10px #25D366);
   }
 }
   .mascota-izquierda{
-  position:fixex;
+  position:fixed;
   left:10px;
   top:220px;
   width:260px;
@@ -891,6 +891,35 @@ filter:drop-shadow(0 0 10px #25D366);
 .product{
   scroll-margin-top: 120px;
 }
+
+  .titulo-pide{
+  font-size: clamp(50px, 9vw, 90px);
+  font-weight: bold;
+  color: #d7ff00;
+  text-transform: uppercase;
+  text-shadow:
+    4px 4px 0 #000,
+    -2px 2px 0 #000,
+    0 0 25px #7eff00;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+.subtitulo-pide{
+  font-size: 28px;
+  color: white;
+  text-shadow: 2px 2px 5px black;
+  margin-top: -10px;
+}
+
+.logo-pide{
+  color:#d7ff00 !important;
+  text-shadow:
+    3px 3px 0 black,
+    0 0 10px #25D366 !important;
+  font-weight:bold;
+  letter-spacing:2px;
+}
   
 </style>
 </head>
@@ -919,8 +948,9 @@ filter:drop-shadow(0 0 10px #25D366);
 <div id="welcome">
  <img src="logolll.png.png" class="logo-welcome" alt="Logo">
   <div id="particles"></div>
-  <h1>SAN JOSE DE MINAS</h1>
-  <p>🏍️ PIDE NOMAAASSS LO LLEVAMOOS POR TI 🛒</p>
+<h1 class="titulo-pide">PIDE NOMASS</h1>
+<p class="subtitulo-pide">SAN JOSE DE MINAS</p>
+<p>🏍️ Lo llevamos por ti 🛒</p>
   <div id="welcomeIconContainer"></div>
   <div id="welcomeAvatarContainer"></div>
   <button onclick="entrar()">PEDIDO</button>
@@ -940,7 +970,7 @@ filter:drop-shadow(0 0 10px #25D366);
   <div class="header-left">
     <div class="logo-box">
       <span class="logo-icon">🛒</span>
-      <h1 class="logo-text">Pide NOMAAASSS</h1>
+      <h1 class="logo-text logo-pide">PIDE NOMASS</h1>
       <span class="logo-icon">🏍️</span>
     </div>
     <p class="sub-text">Rápido • Fácil • A domicilio</p>
