@@ -1243,7 +1243,7 @@ filter:drop-shadow(0 0 10px #25D366);
         <div class="product" style="animation-delay:${Math.random()}s">
           <img src="${escapeHtml(p.imagen || '')}" alt="${escapeHtml(p.nombre || '')}">
           <h3>${escapeHtml(p.nombre || '')}</h3>
-          <p>$${Number(p.precio || 0)}</p>
+          <p>$${Number(p.precio || 0).toFixed(2)}</p>
           <button onclick="addToCart('${p.id}')">Comprar</button>
         </div>`;
     });
@@ -1367,7 +1367,7 @@ function buscarProducto() {
     carrito.push({
       id: producto.id,
       nombre: producto.nombre,
-      precio: Number(producto.precio || 0),
+      precio: Number(Number(producto.precio || 0).toFixed(2)),
       imagen: producto.imagen || ""
     });
 
@@ -1419,13 +1419,13 @@ function buscarProducto() {
     carrito.forEach((p, i) => {
       list.innerHTML += `
         <li>
-          <span>${escapeHtml(p.nombre)} - $${Number(p.precio || 0)}</span>
+          <span>${escapeHtml(p.nombre)} - $${Number(p.precio || 0).toFixed(2)}</span>
           <button onclick="eliminarCarrito(${i})">❌</button>
         </li>`;
       total += Number(p.precio || 0);
     });
 
-    document.getElementById("total").innerText = total;
+    document.getElementById("total").innerText = total.toFixed(2);
     const btn = document.getElementById("toggleCart");
     btn.innerHTML = "🛒";
     btn.setAttribute("data-count", carrito.length);
@@ -1447,7 +1447,7 @@ function buscarProducto() {
   function enviarWhatsApp() {
     let mensaje = "🛒 Pedido:%0A";
     carrito.forEach(p => {
-      mensaje += `- ${p.nombre} ($${p.precio})%0A`;
+      mensaje += `- ${p.nombre} ($${Number(p.precio).toFixed(2)})%0A`;
     });
     mensaje += `%0ATotal: $${document.getElementById("total").innerText}`;
 
